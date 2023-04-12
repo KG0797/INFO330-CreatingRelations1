@@ -1,0 +1,1 @@
+CREATE TABLE students(ID INTEGER PRIMARY KEY, first_name VACHAR(40), last_name VACHAR(80), age NUMERIC);
