@@ -1,9 +1,9 @@
-CREATE TEMPORARY TABLE temp_rooms(id INTEGER PRIMARY KEY, number INTEGER, buildingid INTEGER PRIMARY KEY, seating INTEGER);
+CREATE TEMPORARY TABLE temp_rooms(id INTEGER PRIMARY KEY, number INTEGER, buildingid INTEGER, seating INTEGER, FOREIGN KEY(buildingid) REFERENCES building(id));
 
 INSERT INTO temp_rooms (number, buildingid, seating)
 SELECT number, buildingid, seating FROM rooms;
 
-DELETE TABLE rooms;
+DROP TABLE rooms;
 ALTER TABLE temp_rooms RENAME TO rooms;
 ALTER TABLE rooms ADD COLUMN id INTEGER PRIMARY KEY;
 
